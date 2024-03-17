@@ -55,7 +55,7 @@ class CalcLexer(Lexer):
             "NUMBER", "WS" ]
 
     ruleNames = [ "T__0", "T__1", "T__2", "T__3", "T__4", "T__5", "NUMBER", 
-                  "WS" ]
+                "WS" ]
 
     grammarFileName = "Calc.g4"
 
