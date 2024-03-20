@@ -1,10 +1,13 @@
 grammar Calc;
 
-// Parser rules
-expr: term (('+' | '-') term)*;
-term: factor (('*' | '/') factor)*;
-factor: NUMBER | '(' expr ')' | ('-' | '+') factor;
+expr : term ((ADD | SUB) term)* ;
+term : factor ((MUL | DIV) factor)* ;
+factor : INT | '(' expr ')' ;
 
-// Lexer rules
-NUMBER: [0-9]+ ('.' [0-9]+)?;
-WS: [ \t\r\n]+ -> skip;
+ADD : '+' ;
+SUB : '-' ;
+MUL : '*' ;
+DIV : '/' ;
+
+INT : [0-9]+ ;
+WS : [ \t\r\n]+ -> skip ;
