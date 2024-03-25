@@ -18,6 +18,9 @@ expr_list : expr +;
 ((MEM (1 RES) ^) (2 2 *) +)
 */
 
+// MEM in left side its getting error, handle it
+// ((MEM (1 RES) ^) (2 2 *) +) 
+
 expr : LPAREN expr RPAREN 
         | expr expr MATHOP 
         | expr MOP 
@@ -44,4 +47,4 @@ RPAREN : ')';
 RES : 'res' | 'RES';
 MEM : 'mem' | 'MEM';
 WS: [ \t\n\r\f]+ -> skip ;
-NUMBER : '0' .. '9'+ ('.' '0' ..'9'{2})?;
+NUMBER : '0' .. '9'+ ('.' '0' ..'9'+)?;
