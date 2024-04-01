@@ -5,10 +5,10 @@
   "main": "runner.ts",
   "module": "node",
   "scripts": {
-    "antlr4ts": "antlr4ts -visitor -o ./generated calc.g4",
+    "antlr4ts": "antlr4ts -visitor -o ./generated RPNCalculator.g4",
     "build": "tsc -p ./tsconfig.json && node build/runner.js",
     "start": "npm run antlr4ts && npm run build && node build/runner.js",
-    "reevaluate": "npm run build && node build/runner.js"
+    "evaluate": "npm run build && node build/runner.js"
   },
   "author": "",
   "license": "ISC",

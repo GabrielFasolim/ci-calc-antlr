@@ -27,28 +27,27 @@ $ npm start
 #### 
 
 ```antrl
- grammar calc;
+grammar RPNCalculator;
 
 
-equation : expr_list EOF;
+file : equations EOF;
 
-expr_list : expr +;
+equations : equation+;
 
-expr : LPAREN expr RPAREN 
-        | expr expr MATHOP 
-        | expr MOP 
-        | MOP expr
-        | expr MATHOP
-        | NUMBER 
+equation : LPAREN expression RPAREN;
+
+expression : equation 
+        | expression expression math
+        | expression MEM
+        | NUMBER RES
+        | NUMBER
         | MEM;
 
-MATHOP : DIV 
+math : DIV 
         | POW 
         | PLUS 
         | MULT 
         | MINUS;
-
-MOP : RES | MEM;
 
 ```
 
@@ -62,10 +61,10 @@ MULT : '*';
 MINUS : '-';
 LPAREN : '(';
 RPAREN : ')';
-RES : 'res' | 'RES';
-MEM : 'mem' | 'MEM';
+RES : 'RES';
+MEM : 'MEM';
 WS: [ \t\n\r\f]+ -> skip ;
-NUMBER : '0' .. '9'+ ('.' '0' ..'9'{2})?;
+NUMBER : '0' .. '9'+ ('.' ('0'..'9')*)?;
 ```
 
 
