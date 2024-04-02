@@ -25,6 +25,7 @@ $ npm start
 ```
 ### Parser
 #### 
+The parser's primary function is to take the sequence of tokens produced by the lexer and build a syntax tree based on the grammar rules. This syntax tree represents the structure of the input expression. In the context of the RPN calculator, the parser's role is to interpret this syntax tree to correctly evaluate the mathematical expression in Reverse Polish Notation.
 
 ```antrl
 grammar RPNCalculator;
@@ -52,7 +53,8 @@ math : DIV
 ```
 
 ### Lexer
-#### 
+
+The lexer's primary function is to take the input text and break it down into individual tokens according to the defined rules. In the context of the RPN calculator, the lexer's role is to tokenize the input expression, identifying numbers, operators, parentheses, and other elements that make up the expression.
 ```antrl
 DIV : '/';
 POW : '^';
